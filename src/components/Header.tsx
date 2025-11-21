@@ -41,7 +41,11 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                Nicolas Bulier
+                <img 
+                  src="/images/signature.webp" 
+                  alt="Signature Nicolas Bulier"
+                  className="h-8 md:h-10 w-auto object-contain"
+                />
               </motion.div>
 
               {/* CTA Buttons */}
