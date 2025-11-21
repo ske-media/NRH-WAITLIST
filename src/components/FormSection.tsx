@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Sparkles } from "lucide-react";
+import { Sparkles, CheckCircle2 } from "lucide-react";
 
 const FormSection = () => {
   const [formData, setFormData] = useState({
@@ -9,18 +9,101 @@ const FormSection = () => {
     email: "",
     telephone: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Validation email
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Validation téléphone suisse (format 07X XXX XX XX - 10 chiffres)
+  const validatePhone = (phone: string): boolean => {
+    if (!phone) return true; // Optionnel
+    // Nettoyer les espaces et tirets pour la validation
+    const cleaned = phone.replace(/[\s\-\(\)]/g, "");
+    // Vérifier qu'il y a exactement 10 chiffres et commence par 07
+    return /^07\d{8}$/.test(cleaned);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Validation basique
-    if (!formData.prenom || !formData.email) {
-      toast.error("Veuillez remplir au moins le prénom et l'email");
+    // Validation prénom
+    if (!formData.prenom.trim()) {
+      toast.error("Veuillez entrer votre prénom");
+      setIsSubmitting(false);
       return;
     }
 
-    toast.success("Merci ! Vous serez averti en priorité dès l'ouverture de la vente privée.");
-    setFormData({ prenom: "", email: "", telephone: "" });
+    // Validation email
+    if (!formData.email.trim()) {
+      toast.error("Veuillez entrer votre adresse email");
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      toast.error("Veuillez entrer une adresse email valide");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validation téléphone si fourni
+    if (formData.telephone && !validatePhone(formData.telephone)) {
+      toast.error("Veuillez entrer un numéro de téléphone suisse valide (format: 07X XXX XX XX)");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Préparer les données pour Netlify
+    const formDataToSend = new FormData();
+    formDataToSend.append("form-name", "contact");
+    formDataToSend.append("prenom", formData.prenom);
+    formDataToSend.append("email", formData.email);
+    if (formData.telephone) {
+      formDataToSend.append("telephone", formData.telephone);
+    }
+
+    try {
+      // Envoyer à Netlify Forms via AJAX
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formDataToSend as any).toString(),
+      });
+
+      if (response.ok) {
+        // Notification de succès améliorée et très visible avec style du site
+        toast.success("🎉 Inscription réussie !", {
+          description: "Vous serez averti en priorité dès l'ouverture de la vente privée.",
+          duration: 8000,
+          style: {
+            background: "linear-gradient(135deg, hsl(38 75% 55% / 0.3) 0%, hsl(0 60% 25% / 0.3) 100%)",
+            border: "2px solid hsl(38 75% 55%)",
+            borderRadius: "20px",
+            boxShadow: "0 16px 64px rgba(0, 0, 0, 0.4), 0 0 32px hsl(38 75% 55% / 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+            padding: "24px",
+            fontSize: "18px",
+            fontWeight: "700",
+            color: "hsl(35 25% 95%)",
+            minWidth: "420px",
+            maxWidth: "500px",
+          },
+          className: "font-bold text-cream shadow-2xl",
+        });
+        setFormData({ prenom: "", email: "", telephone: "" });
+      } else {
+        throw new Error("Erreur lors de l'envoi");
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue", {
+        description: "Veuillez réessayer plus tard.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -77,6 +160,18 @@ const FormSection = () => {
           <div className="absolute -top-20 -right-20 w-72 h-72 bg-gold/5 rounded-full blur-3xl opacity-50" />
           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50" />
 
+          {/* Formulaire HTML caché pour Netlify Forms (requis pour les formulaires JavaScript) */}
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            hidden
+          >
+            <input type="text" name="prenom" />
+            <input type="email" name="email" />
+            <input type="tel" name="telephone" />
+          </form>
+
           <form
             name="contact"
             method="POST"
@@ -106,7 +201,7 @@ const FormSection = () => {
                 value={formData.prenom}
                 onChange={handleChange}
                 className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
-                placeholder="Jean"
+                placeholder="Thomas"
                 required
               />
             </motion.div>
@@ -131,7 +226,7 @@ const FormSection = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
-                placeholder="jean@exemple.com"
+                placeholder="thomas.muller@bluewin.ch"
                 required
               />
             </motion.div>
@@ -156,22 +251,25 @@ const FormSection = () => {
                 value={formData.telephone}
                 onChange={handleChange}
                 className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
-                placeholder="06 12 34 56 78"
+                placeholder="079 123 45 67"
               />
             </motion.div>
 
             {/* Submit Button */}
             <motion.button
               type="submit"
-              className="w-full mt-8 py-4 md:py-6 bg-gradient-burgundy text-cream font-semibold text-lg rounded-full transition-all duration-500 hover:shadow-gold hover:scale-105 relative overflow-hidden group"
+              disabled={isSubmitting}
+              className="w-full mt-8 py-4 md:py-6 bg-gradient-burgundy text-cream font-semibold text-lg rounded-full transition-all duration-500 hover:shadow-gold hover:scale-105 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
             >
-              <span className="relative z-10">Rejoindre la vente privée</span>
+              <span className="relative z-10">
+                {isSubmitting ? "Envoi en cours..." : "Rejoindre la vente privée"}
+              </span>
             </motion.button>
           </form>
 
