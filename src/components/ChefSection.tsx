@@ -22,6 +22,10 @@ const ChefSection = () => {
                 src="/images/chef.webp"
                 alt="Portrait du Chef Nicolas Bulier"
                 className="w-full h-full object-cover"
+                loading="eager"
+                onError={(e) => {
+                  console.error("Erreur chargement image chef:", e);
+                }}
               />
             </div>
           </motion.div>

@@ -19,7 +19,7 @@ const FormSection = () => {
       return;
     }
 
-    toast.success("Merci ! Vous serez averti dès l'ouverture des précommandes.");
+    toast.success("Merci ! Vous serez averti en priorité dès l'ouverture de la vente privée.");
     setFormData({ prenom: "", email: "", telephone: "" });
   };
 
@@ -58,10 +58,10 @@ const FormSection = () => {
             <Sparkles className="w-6 h-6 text-gold" />
           </motion.div>
           <h2 className="font-heading text-4xl md:text-5xl text-gold mb-4 tracking-wide">
-            Rejoindre la liste privilège
+            Accès à la vente privée
           </h2>
           <p className="text-cream/70 text-base md:text-lg font-light leading-relaxed">
-            Inscrivez-vous pour un accès prioritaire à la vente privée. Les quantités étant limitées, c'est la seule garantie de pouvoir savourer nos créations pour vos fêtes.
+            Rejoignez la liste privée pour un accès exclusif à la vente. Quantités limitées, réservées aux membres de la liste.
           </p>
         </motion.div>
 
@@ -171,7 +171,7 @@ const FormSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">Je réserve mon accès prioritaire</span>
+              <span className="relative z-10">Rejoindre la vente privée</span>
             </motion.button>
           </form>
 
@@ -184,7 +184,7 @@ const FormSection = () => {
             transition={{ duration: 0.5, delay: 1 }}
           >
             Vos données sont utilisées uniquement pour vous informer de
-            l'ouverture des précommandes
+            l'ouverture de la vente privée
           </motion.p>
         </motion.div>
       </motion.div>

@@ -60,7 +60,7 @@ const Header = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Rejoindre la liste privilège
+                  Accès vente privée
                 </motion.button>
               </div>
             </div>
