@@ -8,7 +8,7 @@ interface Product {
   parts: string;
   tags: string[];
   composition: string[];
-  imagePlaceholder: string;
+  image: string;
 }
 
 const products: Product[] = [
@@ -27,7 +27,7 @@ const products: Product[] = [
       "Ganache montée chantilly pistache",
       "Décor : Chantilly marbré"
     ],
-    imagePlaceholder: "🥧"
+    image: "/images/pistache.webp"
   },
   {
     name: "VANILLE INTENSE",
@@ -45,7 +45,7 @@ const products: Product[] = [
       "Ganache montée vanille",
       "Décor : pochage horizontal fin"
     ],
-    imagePlaceholder: "🎂"
+    image: "/images/vanille.webp"
   },
   {
     name: "NOCTURNE MANDARINE (Velours Brun)",
@@ -62,7 +62,7 @@ const products: Product[] = [
       "Mousse chocolat noir 70% et gingembre",
       "Décor : effet velours chocolat noir"
     ],
-    imagePlaceholder: "🍰"
+    image: "/images/choco.webp"
   }
 ];
 
@@ -126,9 +126,11 @@ const CollectionSection = () => {
             >
               {/* Image */}
               <div className="aspect-[4/3] bg-gradient-to-br from-gray-800 via-gray-900 to-black relative overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center text-6xl">
-                  {product.imagePlaceholder}
-                </div>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute top-4 right-4 flex flex-wrap gap-2 justify-end">
                   {product.tags.map((tag, tagIndex) => (
                     <span

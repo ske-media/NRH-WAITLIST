@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import bucheChocolat from "@/assets/buche-chocolat-signature.jpg";
-import buchePistache from "@/assets/buche-pistache-framboise.jpg";
 
 const VisualSection = () => {
   const containerVariants = {
@@ -60,7 +58,7 @@ const VisualSection = () => {
           >
             <div className="aspect-[4/3] overflow-hidden">
               <motion.img
-                src={bucheChocolat}
+                src="/images/choco.webp"
                 alt="Bûche Chocolat Signature"
                 className="w-full h-full object-cover transition-transform duration-700"
                 whileHover={{ scale: 1.1 }}
@@ -88,7 +86,7 @@ const VisualSection = () => {
           >
             <div className="aspect-[4/3] overflow-hidden">
               <motion.img
-                src={buchePistache}
+                src="/images/pistache.webp"
                 alt="Bûche Pistache Framboise"
                 className="w-full h-full object-cover transition-transform duration-700"
                 whileHover={{ scale: 1.1 }}

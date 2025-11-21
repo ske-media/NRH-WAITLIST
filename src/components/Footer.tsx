@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -39,22 +39,15 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <motion.a
-              href="#"
+              href="https://www.instagram.com/nicolasbulier/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-cream/70 hover:text-gold transition-colors duration-300"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
-            </motion.a>
-            <motion.a
-              href="#"
-              className="text-cream/70 hover:text-gold transition-colors duration-300"
-              whileHover={{ scale: 1.2, rotate: -5 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Facebook"
-            >
-              <Facebook className="w-5 h-5" />
             </motion.a>
             <motion.a
               href="mailto:contact@nicolasbuiler.com"

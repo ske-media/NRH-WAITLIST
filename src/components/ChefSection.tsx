@@ -18,17 +18,11 @@ const ChefSection = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-gold/20 shadow-elegant">
-              {/* Placeholder élégant pour le portrait du chef */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-gold/20 to-burgundy/20 border-2 border-gold/40 flex items-center justify-center">
-                    <span className="text-4xl">👨‍🍳</span>
-                  </div>
-                  <p className="text-cream/60 text-sm font-body italic">
-                    Portrait du Chef Nicolas Bulier
-                  </p>
-                </div>
-              </div>
+              <img
+                src="/chef.webp"
+                alt="Portrait du Chef Nicolas Bulier"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
