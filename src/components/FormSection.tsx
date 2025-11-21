@@ -58,11 +58,10 @@ const FormSection = () => {
             <Sparkles className="w-6 h-6 text-gold" />
           </motion.div>
           <h2 className="font-heading text-4xl md:text-5xl text-gold mb-4">
-            Soyez les premiers informés
+            Rejoindre la liste privilège
           </h2>
           <p className="text-cream/70 text-base md:text-lg font-light">
-            Inscrivez-vous à notre liste privilège et recevez en avant-première
-            l'ouverture des précommandes
+            Soyez averti dès l'ouverture des précommandes pour la Collection 2025.
           </p>
         </motion.div>
 

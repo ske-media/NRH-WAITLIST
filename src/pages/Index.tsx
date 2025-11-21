@@ -1,6 +1,11 @@
 import SnowParticles from "@/components/SnowParticles";
 import HeroSection from "@/components/HeroSection";
-import VisualSection from "@/components/VisualSection";
+import ChefSection from "@/components/ChefSection";
+import CollectionSection from "@/components/CollectionSection";
+import BundleSection from "@/components/BundleSection";
+import NutritionalSection from "@/components/NutritionalSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import B2BSection from "@/components/B2BSection";
 import FormSection from "@/components/FormSection";
 import Footer from "@/components/Footer";
 
@@ -13,7 +18,12 @@ const Index = () => {
       {/* Main Content */}
       <div className="relative z-10">
         <HeroSection />
-        <VisualSection />
+        <ChefSection />
+        <CollectionSection />
+        <BundleSection />
+        <NutritionalSection />
+        <TestimonialsSection />
+        <B2BSection />
         <FormSection />
         <Footer />
       </div>
