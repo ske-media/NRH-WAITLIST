@@ -23,8 +23,8 @@ const Index = () => {
         <BundleSection />
         <NutritionalSection />
         <TestimonialsSection />
-        <B2BSection />
         <FormSection />
+        <B2BSection />
         <Footer />
       </div>
     </main>
