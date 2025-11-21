@@ -14,8 +14,8 @@ const FormSection = () => {
     e.preventDefault();
     
     // Validation basique
-    if (!formData.prenom || !formData.email || !formData.telephone) {
-      toast.error("Veuillez remplir tous les champs");
+    if (!formData.prenom || !formData.email) {
+      toast.error("Veuillez remplir au moins le prénom et l'email");
       return;
     }
 
@@ -57,11 +57,11 @@ const FormSection = () => {
           >
             <Sparkles className="w-6 h-6 text-gold" />
           </motion.div>
-          <h2 className="font-heading text-4xl md:text-5xl text-gold mb-4">
+          <h2 className="font-heading text-4xl md:text-5xl text-gold mb-4 tracking-wide">
             Rejoindre la liste privilège
           </h2>
-          <p className="text-cream/70 text-base md:text-lg font-light">
-            Soyez averti dès l'ouverture des précommandes pour la Collection 2025.
+          <p className="text-cream/70 text-base md:text-lg font-light leading-relaxed">
+            Inscrivez-vous pour un accès prioritaire à la vente privée. Les quantités étant limitées, c'est la seule garantie de pouvoir savourer nos créations pour vos fêtes.
           </p>
         </motion.div>
 
@@ -136,7 +136,7 @@ const FormSection = () => {
               />
             </motion.div>
 
-            {/* Téléphone */}
+            {/* Téléphone - Optionnel */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -147,7 +147,7 @@ const FormSection = () => {
                 htmlFor="telephone"
                 className="block text-sm font-medium text-foreground mb-2"
               >
-                Téléphone
+                Téléphone <span className="text-cream/50 text-xs font-normal">(optionnel)</span>
               </label>
               <input
                 type="tel"
@@ -157,7 +157,6 @@ const FormSection = () => {
                 onChange={handleChange}
                 className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
                 placeholder="06 12 34 56 78"
-                required
               />
             </motion.div>
 
@@ -172,7 +171,7 @@ const FormSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">Rejoindre la liste privilège</span>
+              <span className="relative z-10">Je réserve mon accès prioritaire</span>
             </motion.button>
           </form>
 

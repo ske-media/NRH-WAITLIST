@@ -17,6 +17,11 @@ export default {
         heading: ['Playfair Display', 'serif'],
         body: ['Montserrat', 'sans-serif'],
       },
+      letterSpacing: {
+        'wide': '0.02em',
+        'wider': '0.05em',
+        'widest': '0.1em',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

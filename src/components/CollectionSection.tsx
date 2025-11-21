@@ -9,6 +9,7 @@ interface Product {
   tags: string[];
   composition: string[];
   image: string;
+  chefNote: string;
 }
 
 const products: Product[] = [
@@ -18,6 +19,7 @@ const products: Product[] = [
     pricePerPart: "Soit CHF 6.60 par part",
     parts: "6-8 parts",
     tags: ["Sans Lactose", "Vegan", "IG Bas"],
+    chefNote: "Une alliance audacieuse entre la noblesse de la pistache de Sicile et l'acidité vive de la framboise. Une création qui célèbre la générosité de la nature, sans compromis sur l'intensité des saveurs.",
     composition: [
       "Pistache pure – Framboise – Vanille",
       "Biscuit pistache & citron vert",
@@ -35,6 +37,7 @@ const products: Product[] = [
     pricePerPart: "Soit CHF 5.40 par part",
     parts: "6-8 parts",
     tags: ["Sans Lactose", "IG Bas"],
+    chefNote: "Un retour aux sources, une vanille fumée qui réveille les souvenirs d'enfance. L'élégance d'un praliné fruité qui transforme la simplicité en moment d'exception.",
     composition: [
       "Vanille fumée – Praliné amande/noisette fruité",
       "Biscuit amande–vanille",
@@ -53,6 +56,7 @@ const products: Product[] = [
     pricePerPart: "Soit CHF 5.25 par part",
     parts: "6-8 parts",
     tags: ["Sans Gluten", "IG Bas", "Végan"],
+    chefNote: "Une plongée dans l'intensité d'un chocolat noir grand cru, réveillée par la fraîcheur espiègle de la mandarine et l'élégance du combava. Une création puissante et réconfortante.",
     composition: [
       "Chocolat intense – Mandarine – Kombava",
       "Biscuit chocolat moelleux",
@@ -67,25 +71,6 @@ const products: Product[] = [
 ];
 
 const CollectionSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
     <section
       id="collection-section"
@@ -104,74 +89,98 @@ const CollectionSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-6">
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-6 tracking-wide">
             La Collection Exclusive
           </h2>
           <div className="w-24 h-1 bg-gradient-gold mx-auto" />
         </motion.div>
 
-        {/* Product Grid */}
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {products.map((product, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="group glass-card rounded-2xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500 flex flex-col"
-            >
-              {/* Image */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-gray-800 via-gray-900 to-black relative overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 right-4 flex flex-wrap gap-2 justify-end">
-                  {product.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-gold/20 backdrop-blur-sm border border-gold/40 rounded-full text-cream text-xs font-body font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="font-heading text-2xl md:text-3xl text-gold mb-3">
-                  {product.name}
-                </h3>
-
-                <div className="mb-4">
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="font-heading text-3xl text-cream">{product.price}</span>
-                    <span className="text-cream/60 text-sm font-body">({product.parts})</span>
+        {/* Products - Alternating Layout */}
+        <div className="space-y-16 md:space-y-24">
+          {products.map((product, index) => {
+            const isEven = index % 2 === 0;
+            
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="group"
+              >
+                <div
+                  className={`glass-card rounded-3xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500 ${
+                    isEven
+                      ? "md:flex-row"
+                      : "md:flex-row-reverse"
+                  } flex flex-col md:flex`}
+                >
+                  {/* Image */}
+                  <div className="md:w-1/2 aspect-[4/3] md:aspect-square bg-gradient-to-br from-gray-800 via-gray-900 to-black relative overflow-hidden">
+                    <motion.img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ duration: 0.6 }}
+                    />
+                    <div className="absolute top-4 right-4 flex flex-wrap gap-2 justify-end">
+                      {product.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="px-3 py-1 bg-gold/20 backdrop-blur-sm border border-gold/40 rounded-full text-cream text-xs font-body font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <p className="text-gold/80 text-sm font-body">{product.pricePerPart}</p>
-                </div>
 
-                <div className="mt-auto space-y-2">
-                  <p className="text-cream/90 font-body font-semibold text-sm mb-2">Composition :</p>
-                  <ul className="space-y-1 text-sm text-cream/70 font-body">
-                    {product.composition.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Content */}
+                  <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                    <h3 className="font-heading text-3xl md:text-4xl lg:text-5xl text-gold mb-6 tracking-wide">
+                      {product.name}
+                    </h3>
+
+                    {/* Le mot du Chef */}
+                    <motion.div
+                      className="mb-6 p-5 bg-gold/10 border-l-4 border-gold rounded-r-lg"
+                      initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                      <p className="text-cream/90 font-body italic text-base md:text-lg leading-relaxed">
+                        "{product.chefNote}"
+                      </p>
+                    </motion.div>
+
+                    <div className="mb-6">
+                      <div className="flex items-baseline gap-3 mb-2">
+                        <span className="font-heading text-4xl md:text-5xl text-cream">{product.price}</span>
+                        <span className="text-cream/60 text-base font-body">({product.parts})</span>
+                      </div>
+                      <p className="text-gold/80 text-base font-body">{product.pricePerPart}</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <p className="text-cream/90 font-body font-semibold text-base mb-3">Les secrets de sa composition :</p>
+                      <ul className="space-y-2 text-sm md:text-base text-cream/70 font-body">
+                        {product.composition.map((item, itemIndex) => (
+                          <li key={itemIndex} className="flex items-start gap-3">
+                            <Check className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

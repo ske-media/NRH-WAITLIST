@@ -34,30 +34,30 @@ const HeroSection = () => {
         transition={{ duration: 1, delay: 0.3 }}
       >
         <motion.h1
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-cream mb-6"
+          className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-cream mb-6 tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Noël Sans Compromis
+          Ré-enchantez votre Noël.
         </motion.h1>
 
         <motion.h2
-          className="font-heading text-3xl md:text-5xl lg:text-6xl text-cream mb-6 leading-tight"
+          className="font-heading text-2xl md:text-4xl lg:text-5xl text-cream mb-6 leading-tight tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7 }}
         >
-          Trois bûches d'exception qui honorent chaque convive. Sans lactose · Sans gluten · Indice glycémique bas
+          La promesse d'un dessert d'exception où chaque convive, sans exception, retrouve le goût authentique des fêtes.
         </motion.h2>
 
         <motion.p
-          className="text-lg md:text-xl text-cream/80 mb-10 font-body font-light"
+          className="text-lg md:text-xl text-cream/80 mb-10 font-body font-light leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
         >
-          Collection 2025 par le Chef Nicolas Bulier. De CHF 42 · Genève · Jusqu'au 20 décembre
+          Des créations signées Nicolas Bulier, pensées pour le plaisir de tous. Sans lactose · Sans gluten · Indice glycémique bas
         </motion.p>
 
         {/* Badges Features */}
@@ -78,17 +78,33 @@ const HeroSection = () => {
           </span>
         </motion.div>
 
-        <motion.button
-          onClick={scrollToCollection}
-          className="group relative px-8 md:px-12 py-4 md:py-6 bg-gradient-burgundy text-cream font-body font-semibold text-base md:text-lg rounded-full overflow-hidden transition-all duration-500 hover:shadow-gold hover:scale-105"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span className="relative z-10">Découvrir la collection</span>
-        </motion.button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.button
+            onClick={scrollToCollection}
+            className="group relative px-8 md:px-12 py-4 md:py-6 bg-gradient-burgundy text-cream font-body font-semibold text-base md:text-lg rounded-full overflow-hidden transition-all duration-500 hover:shadow-gold hover:scale-105"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="relative z-10">Découvrir les Créations</span>
+          </motion.button>
+          <motion.button
+            onClick={() => {
+              const b2bSection = document.getElementById("b2b-section");
+              b2bSection?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="text-cream/80 hover:text-cream font-body text-sm md:text-base font-medium transition-colors duration-300 underline underline-offset-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Offre Entreprises
+          </motion.button>
+        </div>
       </motion.div>
 
       {/* Scroll Indicator */}

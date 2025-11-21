@@ -19,7 +19,7 @@ const ChefSection = () => {
           >
             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-gold/20 shadow-elegant">
               <img
-                src="/chef.webp"
+                src="/images/chef.webp"
                 alt="Portrait du Chef Nicolas Bulier"
                 className="w-full h-full object-cover"
               />
@@ -35,35 +35,32 @@ const ChefSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.h2
-              className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-8"
+              className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-8 tracking-wide"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Quand la vie vous défie...
+              D'une épreuve est née une vocation.
             </motion.h2>
 
             <motion.div
-              className="space-y-4 text-lg md:text-xl text-cream/80 font-body leading-relaxed"
+              className="space-y-6 text-lg md:text-xl text-cream/80 font-body leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p>
-                Un diagnostic de <span className="text-gold font-semibold">diabète foudroyant</span> à 35 ans.
-                Une promesse faite à lui-même : continuer à créer, mais autrement.
+                Le jour où le sucre est devenu un défi, ma passion est devenue une mission. Pour moi, Chef Pâtissier, le diagnostic d'un <span className="text-gold font-semibold">diabète à 35 ans</span> sonnait comme une fin. C'était sans compter sur la résilience et l'envie de créer.
               </p>
 
               <p>
-                Trois années de recherche. Des milliers d'essais. Une quête pour des saveurs intenses
-                sans compromettre la santé.
+                Trois années de recherche acharnée dans mon atelier genevois. Des milliers d'heures à repenser chaque ingrédient, chaque texture, chaque équilibre. Non pas pour faire 'sans', mais pour créer 'avec' : avec la noblesse de la pistache de Sicile, l'intensité du chocolat grand cru, la douceur naturelle des sucres rares.
               </p>
 
               <p>
-                Aujourd'hui, le Chef Nicolas Bulier présente ses <span className="text-gold font-semibold">œuvres pâtissières d'exception</span> :
-                des bûches de Noël qui prouvent que l'excellence peut rimer avec bienveillance.
+                Aujourd'hui, je ne présente pas de simples bûches. Je vous confie le fruit de mon histoire : la preuve que la gourmandise peut être un art bienveillant, un luxe qui prend soin de vous et de ceux que vous aimez.
               </p>
             </motion.div>
 

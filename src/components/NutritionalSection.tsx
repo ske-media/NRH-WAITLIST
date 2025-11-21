@@ -39,7 +39,7 @@ const NutritionalSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-6">
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-6 tracking-wide">
             La gourmandise éclairée
           </h2>
           <div className="w-24 h-1 bg-gradient-gold mx-auto mb-6" />
