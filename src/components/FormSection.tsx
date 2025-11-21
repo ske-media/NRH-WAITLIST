@@ -57,16 +57,49 @@ const FormSection = () => {
       return;
     }
 
-    // Préparer les données pour Netlify
-    const formDataToSend = new FormData();
-    formDataToSend.append("form-name", "contact");
-    formDataToSend.append("prenom", formData.prenom);
-    formDataToSend.append("email", formData.email);
-    if (formData.telephone) {
-      formDataToSend.append("telephone", formData.telephone);
+    // Fonction pour afficher le message de succès
+    const showSuccessMessage = () => {
+      toast.success("🎉 Inscription réussie !", {
+        description: "Vous serez averti en priorité dès l'ouverture de la vente privée.",
+        duration: 8000,
+        style: {
+          background: "linear-gradient(135deg, hsl(38 75% 55% / 0.3) 0%, hsl(0 60% 25% / 0.3) 100%)",
+          border: "2px solid hsl(38 75% 55%)",
+          borderRadius: "20px",
+          boxShadow: "0 16px 64px rgba(0, 0, 0, 0.4), 0 0 32px hsl(38 75% 55% / 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+          padding: "24px",
+          fontSize: "18px",
+          fontWeight: "700",
+          color: "hsl(35 25% 95%)",
+          minWidth: "420px",
+          maxWidth: "500px",
+        },
+        className: "font-bold text-cream shadow-2xl",
+      });
+      setFormData({ prenom: "", email: "", telephone: "" });
+    };
+
+    // En développement local, Netlify Forms ne fonctionne pas
+    // On simule une soumission réussie
+    if (import.meta.env.DEV) {
+      // Simuler un délai pour l'expérience utilisateur
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      showSuccessMessage();
+      setIsSubmitting(false);
+      return;
     }
 
+    // En production, envoyer à Netlify Forms
     try {
+      // Préparer les données pour Netlify
+      const formDataToSend = new FormData();
+      formDataToSend.append("form-name", "contact");
+      formDataToSend.append("prenom", formData.prenom);
+      formDataToSend.append("email", formData.email);
+      if (formData.telephone) {
+        formDataToSend.append("telephone", formData.telephone);
+      }
+
       // Envoyer à Netlify Forms via AJAX
       const response = await fetch("/", {
         method: "POST",
@@ -75,25 +108,7 @@ const FormSection = () => {
       });
 
       if (response.ok) {
-        // Notification de succès améliorée et très visible avec style du site
-        toast.success("🎉 Inscription réussie !", {
-          description: "Vous serez averti en priorité dès l'ouverture de la vente privée.",
-          duration: 8000,
-          style: {
-            background: "linear-gradient(135deg, hsl(38 75% 55% / 0.3) 0%, hsl(0 60% 25% / 0.3) 100%)",
-            border: "2px solid hsl(38 75% 55%)",
-            borderRadius: "20px",
-            boxShadow: "0 16px 64px rgba(0, 0, 0, 0.4), 0 0 32px hsl(38 75% 55% / 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
-            padding: "24px",
-            fontSize: "18px",
-            fontWeight: "700",
-            color: "hsl(35 25% 95%)",
-            minWidth: "420px",
-            maxWidth: "500px",
-          },
-          className: "font-bold text-cream shadow-2xl",
-        });
-        setFormData({ prenom: "", email: "", telephone: "" });
+        showSuccessMessage();
       } else {
         throw new Error("Erreur lors de l'envoi");
       }
@@ -160,22 +175,10 @@ const FormSection = () => {
           <div className="absolute -top-20 -right-20 w-72 h-72 bg-gold/5 rounded-full blur-3xl opacity-50" />
           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50" />
 
-          {/* Formulaire HTML caché pour Netlify Forms (requis pour les formulaires JavaScript) */}
           <form
             name="contact"
             method="POST"
-            data-netlify="true"
-            hidden
-          >
-            <input type="text" name="prenom" />
-            <input type="email" name="email" />
-            <input type="tel" name="telephone" />
-          </form>
-
-          <form
-            name="contact"
-            method="POST"
-            data-netlify="true"
+            netlify
             onSubmit={handleSubmit}
             className="space-y-6"
           >
