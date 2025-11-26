@@ -56,15 +56,15 @@ const ChefSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p>
-                Le jour où le sucre est devenu un défi, la passion du Chef Bulier s'est transformée en mission. Diagnostiqué diabétique à 28 ans, celui qui avait travaillé dans des palaces aux quatre coins du monde aurait pu y voir une fin. Il y a vu un nouveau départ.
+                Le Chef Nicolas Bulier était au sommet de son art, formé dans les plus grands <span className="font-bold text-cream">palaces</span>. Puis le <span className="font-bold text-cream">diabète</span> a frappé à <span className="font-bold text-cream">28 ans</span>.
               </p>
 
               <p>
-                De longues heures de recherche dans son laboratoire, à repenser chaque ingrédient, chaque texture, chaque équilibre. Non pas pour faire sans, mais pour créer avec : avec la noblesse de la pistache de Sicile, l'intensité du chocolat grand cru, la douceur naturelle des sucres rares.
+                Il a fait un choix radical : <span className="font-bold text-cream">réinventer</span> la pâtisserie plutôt qu'y renoncer. Des heures de recherche pour transformer la contrainte en <span className="font-bold text-cream">création d'exception</span>.
               </p>
 
               <p>
-                Aujourd'hui, il ne présente pas de simples bûches. Il partage le fruit de son histoire : la preuve que la gourmandise peut être un art bienveillant, un luxe qui prend soin de chacun sans jamais renoncer à l'excellence.
+                Ses bûches ne sont pas des compromis. Ce sont des <span className="font-bold text-cream">œuvres</span> qui prennent soin de vous.
               </p>
             </motion.div>
 

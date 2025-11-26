@@ -22,9 +22,11 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="font-heading text-2xl text-gold mb-2">
-              Nicolas Builer
-            </h3>
+            <img 
+              src="/images/signature.webp" 
+              alt="Signature Nicolas Bulier"
+              className="h-8 md:h-10 w-auto object-contain mb-2 mx-auto md:mx-0"
+            />
             <p className="text-sm text-cream/70">
               Haute Pâtisserie · Collection Exclusive
             </p>

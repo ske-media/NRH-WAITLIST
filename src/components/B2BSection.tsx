@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Users, Clock, Gift, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const B2BSection = () => {
+  const navigate = useNavigate();
+  
   const painPoints = [
     {
       icon: Users,
@@ -28,7 +31,7 @@ const B2BSection = () => {
   ];
 
   const handleContactClick = () => {
-    window.location.href = "mailto:contact@nicolasbuiler.com?subject=Devis professionnel - Collection 2025";
+    navigate("/devis");
   };
 
   return (
