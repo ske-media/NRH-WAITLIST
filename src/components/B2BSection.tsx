@@ -11,7 +11,7 @@ const B2BSection = () => {
     {
       icon: Gift,
       problem: "Des cadeaux clients qui se ressemblent tous",
-      solution: "Une création unique signée chef étoilé qui marque les esprits et renforce vos relations."
+      solution: "Une création unique qui marque les esprits et renforce vos relations."
     },
     {
       icon: Clock,
@@ -22,8 +22,9 @@ const B2BSection = () => {
 
   const pricingTiers = [
     { range: "10-20 bûches", discount: "10%" },
-    { range: "21-50 bûches", discount: "15%" },
-    { range: "51+ bûches", discount: "20%" }
+    { range: "20-30 bûches", discount: "12%" },
+    { range: "30-40 bûches", discount: "15%" },
+    { range: "40+ bûches", discount: "Devis personnalisé", isCustom: true }
   ];
 
   const handleContactClick = () => {
@@ -99,6 +100,9 @@ const B2BSection = () => {
           <h3 className="font-heading text-2xl text-gold mb-6 text-center tracking-wide">
             Tarifs dégressifs
           </h3>
+          <p className="text-cream/70 font-body text-sm text-center mb-6">
+            (à partir de 10 bûches)
+          </p>
           <div className="space-y-3">
             {pricingTiers.map((tier, index) => (
               <motion.div
@@ -113,7 +117,7 @@ const B2BSection = () => {
                   {tier.range}
                 </span>
                 <span className="text-gold font-heading text-xl">
-                  -{tier.discount}
+                  {tier.isCustom ? tier.discount : `-${tier.discount}`}
                 </span>
               </motion.div>
             ))}

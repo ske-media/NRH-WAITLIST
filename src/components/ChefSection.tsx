@@ -56,15 +56,15 @@ const ChefSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p>
-                Le jour où le sucre est devenu un défi, ma passion est devenue une mission. Pour moi, Chef Pâtissier, le diagnostic d'un <span className="text-gold font-semibold">diabète à 35 ans</span> sonnait comme une fin. C'était sans compter sur la résilience et l'envie de créer.
+                Le jour où le sucre est devenu un défi, la passion du Chef Bulier s'est transformée en mission. Diagnostiqué diabétique à 28 ans, celui qui avait travaillé dans des palaces aux quatre coins du monde aurait pu y voir une fin. Il y a vu un nouveau départ.
               </p>
 
               <p>
-                Trois années de recherche acharnée dans mon atelier genevois. Des milliers d'heures à repenser chaque ingrédient, chaque texture, chaque équilibre. Non pas pour faire 'sans', mais pour créer 'avec' : avec la noblesse de la pistache de Sicile, l'intensité du chocolat grand cru, la douceur naturelle des sucres rares.
+                De longues heures de recherche dans son laboratoire, à repenser chaque ingrédient, chaque texture, chaque équilibre. Non pas pour faire sans, mais pour créer avec : avec la noblesse de la pistache de Sicile, l'intensité du chocolat grand cru, la douceur naturelle des sucres rares.
               </p>
 
               <p>
-                Aujourd'hui, je ne présente pas de simples bûches. Je vous confie le fruit de mon histoire : la preuve que la gourmandise peut être un art bienveillant, un luxe qui prend soin de vous et de ceux que vous aimez.
+                Aujourd'hui, il ne présente pas de simples bûches. Il partage le fruit de son histoire : la preuve que la gourmandise peut être un art bienveillant, un luxe qui prend soin de chacun sans jamais renoncer à l'excellence.
               </p>
             </motion.div>
 

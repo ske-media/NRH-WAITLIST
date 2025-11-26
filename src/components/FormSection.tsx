@@ -5,6 +5,7 @@ import { Sparkles, CheckCircle2 } from "lucide-react";
 
 const FormSection = () => {
   const [formData, setFormData] = useState({
+    nom: "",
     prenom: "",
     email: "",
     telephone: "",
@@ -19,7 +20,7 @@ const FormSection = () => {
 
   // Validation téléphone suisse (format 07X XXX XX XX - 10 chiffres)
   const validatePhone = (phone: string): boolean => {
-    if (!phone) return true; // Optionnel
+    if (!phone) return false; // Obligatoire
     // Nettoyer les espaces et tirets pour la validation
     const cleaned = phone.replace(/[\s\-\(\)]/g, "");
     // Vérifier qu'il y a exactement 10 chiffres et commence par 07
@@ -30,6 +31,13 @@ const FormSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Validation nom
+    if (!formData.nom.trim()) {
+      toast.error("Veuillez entrer votre nom");
+      setIsSubmitting(false);
+      return;
+    }
+
     // Validation prénom
     if (!formData.prenom.trim()) {
       toast.error("Veuillez entrer votre prénom");
@@ -50,8 +58,14 @@ const FormSection = () => {
       return;
     }
 
-    // Validation téléphone si fourni
-    if (formData.telephone && !validatePhone(formData.telephone)) {
+    // Validation téléphone (obligatoire)
+    if (!formData.telephone.trim()) {
+      toast.error("Veuillez entrer votre numéro de téléphone");
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!validatePhone(formData.telephone)) {
       toast.error("Veuillez entrer un numéro de téléphone suisse valide (format: 07X XXX XX XX)");
       setIsSubmitting(false);
       return;
@@ -76,7 +90,7 @@ const FormSection = () => {
         },
         className: "font-bold text-cream shadow-2xl",
       });
-      setFormData({ prenom: "", email: "", telephone: "" });
+      setFormData({ nom: "", prenom: "", email: "", telephone: "" });
     };
 
     // En développement local, Netlify Forms ne fonctionne pas
@@ -94,11 +108,10 @@ const FormSection = () => {
       // Préparer les données pour Netlify
       const formDataToSend = new FormData();
       formDataToSend.append("form-name", "contact");
+      formDataToSend.append("nom", formData.nom);
       formDataToSend.append("prenom", formData.prenom);
       formDataToSend.append("email", formData.email);
-      if (formData.telephone) {
-        formDataToSend.append("telephone", formData.telephone);
-      }
+      formDataToSend.append("telephone", formData.telephone);
 
       // Envoyer à Netlify Forms via AJAX
       const response = await fetch("/", {
@@ -184,12 +197,37 @@ const FormSection = () => {
           >
             <input type="hidden" name="form-name" value="contact" />
 
-            {/* Prénom */}
+            {/* Nom */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <label
+                htmlFor="nom"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
+                Nom
+              </label>
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                value={formData.nom}
+                onChange={handleChange}
+                className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                placeholder="Muller"
+                required
+              />
+            </motion.div>
+
+            {/* Prénom */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
             >
               <label
                 htmlFor="prenom"
@@ -214,7 +252,7 @@ const FormSection = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
             >
               <label
                 htmlFor="email"
@@ -234,18 +272,18 @@ const FormSection = () => {
               />
             </motion.div>
 
-            {/* Téléphone - Optionnel */}
+            {/* Téléphone - Obligatoire */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.7 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
             >
               <label
                 htmlFor="telephone"
                 className="block text-sm font-medium text-foreground mb-2"
               >
-                Téléphone <span className="text-cream/50 text-xs font-normal">(optionnel)</span>
+                Téléphone
               </label>
               <input
                 type="tel"
@@ -255,6 +293,7 @@ const FormSection = () => {
                 onChange={handleChange}
                 className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
                 placeholder="079 123 45 67"
+                required
               />
             </motion.div>
 
@@ -266,7 +305,7 @@ const FormSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.8 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
               whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
               whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
             >

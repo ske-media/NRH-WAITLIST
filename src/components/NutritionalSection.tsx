@@ -4,24 +4,16 @@ import { Check } from "lucide-react";
 const NutritionalSection = () => {
   const benefits = [
     {
-      title: "Indice Glycémique Bas",
-      description: "Préparation soigneusement pensée pour éviter les pics de glycémie"
-    },
-    {
-      title: "Ingrédients nobles",
-      description: "Pistache de Sicile, vanille de Madagascar, chocolat 70% : seulement le meilleur"
-    },
-    {
-      title: "Sucres naturels",
-      description: "Érythritol, stévia et sucres à index glycémique bas pour une douceur sans culpabilité"
+      title: "Chocolat 70% grand cru",
+      description: "Sucre naturels et fibres sucrantes : Inuline, oligofructose, sucre de coco de canne complet ou sirop d'agave, sucrant à index glycemique bas pour la douceur du sucre sans culpabilisé."
     },
     {
       title: "Farines alternatives",
-      description: "Amande, pistache, cacao : des textures authentiques sans gluten"
+      description: "Amande, pistache, noisette, farine de riz complet : des textures authentique sans gluten – Farine T80, T150, plus nutritives et favorable pour la glycémie."
     },
     {
-      title: "Matières grasses saines",
-      description: "Huiles végétales sélectionnées, beurres de fruits secs : du bon gras pour votre santé"
+      title: "Matières grasses saines et végétale",
+      description: "Huiles végétale, huile de coco, beurre de cacao plus légé gustitivement et bon pour la santé."
     }
   ];
 

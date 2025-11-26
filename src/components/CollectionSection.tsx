@@ -18,53 +18,48 @@ const products: Product[] = [
     price: "CHF 53",
     pricePerPart: "Soit CHF 6.60 par part",
     parts: "6-8 parts",
-    tags: ["Sans Lactose", "Vegan", "IG Bas"],
-    chefNote: "Une alliance audacieuse entre la noblesse de la pistache de Sicile et l'acidité vive de la framboise. Une création qui célèbre la générosité de la nature, sans compromis sur l'intensité des saveurs.",
+    tags: ["Sans Lactose", "IG Bas", "Sans sucre raffinés"],
+    chefNote: "Pistache pure – Framboise – Subtil fleur d'oranger",
     composition: [
-      "Pistache pure – Framboise – Vanille",
       "Biscuit pistache & citron vert",
-      "Croustillant praliné pistache",
-      "Confit framboise rubis",
+      "Croustillant reconstitué pistache",
+      "Confit framboise intense",
       "Mousse 100 % pistache pure",
-      "Ganache montée chantilly pistache",
-      "Décor : Chantilly marbré"
+      "Chantilly pistache"
     ],
     image: "/images/pistache.webp"
   },
   {
     name: "VANILLE INTENSE",
-    price: "CHF 43",
-    pricePerPart: "Soit CHF 5.40 par part",
+    price: "CHF 45",
+    pricePerPart: "Soit CHF 5.63 par part",
     parts: "6-8 parts",
-    tags: ["Sans Lactose", "IG Bas"],
-    chefNote: "Un retour aux sources, une vanille fumée qui réveille les souvenirs d'enfance. L'élégance d'un praliné fruité qui transforme la simplicité en moment d'exception.",
+    tags: ["Sans Gluten", "Sans lactose", "Sans sucre raffinés"],
+    chefNote: "Vanille de madagascar– Praliné amande caramelisée",
     composition: [
-      "Vanille fumée – Praliné amande/noisette fruité",
       "Biscuit amande–vanille",
-      "Croustillant Amande",
+      "Croustillant Amande noisette",
       "Crémeux 100% vanille",
-      "Praliné noisette-amande",
+      "Caramel tendre fleur de sel",
       "Mousse vanille légère",
-      "Ganache montée vanille",
-      "Décor : pochage horizontal fin"
+      "Ganache montée vanillée",
+      "Décor : pochage horizontal fin et gousse de vanille entière en chocolat"
     ],
     image: "/images/vanille.webp"
   },
   {
-    name: "NOCTURNE MANDARINE (Velours Brun)",
-    price: "CHF 42",
-    pricePerPart: "Soit CHF 5.25 par part",
+    name: "Velours Brun Agrumes",
+    price: "CHF 44",
+    pricePerPart: "Soit CHF 5.50 par part",
     parts: "6-8 parts",
-    tags: ["Sans Gluten", "IG Bas", "Végan"],
-    chefNote: "Une plongée dans l'intensité d'un chocolat noir grand cru, réveillée par la fraîcheur espiègle de la mandarine et l'élégance du combava. Une création puissante et réconfortante.",
+    tags: ["Végan", "Sans lactose", "Sans ingrédients raffinés"],
+    chefNote: "Chocolat intense – Mandarine – Kombava",
     composition: [
-      "Chocolat intense – Mandarine – Kombava",
       "Biscuit chocolat moelleux",
-      "Croustillant reconstitué et grué de cacao caramélisé",
-      "Confit mandarine plein fruit & zestes",
+      "Croustillant reconstitué et gruée de cacao caramelisé",
+      "Confit mandarine plein fruit & zestes agrumes",
       "Gel chocolat noir infusé au combava",
-      "Mousse chocolat noir 70% et gingembre",
-      "Décor : effet velours chocolat noir"
+      "Mousse chocolat noir 70 % et gingembre"
     ],
     image: "/images/choco.webp"
   }
