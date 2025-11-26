@@ -72,7 +72,7 @@ const CollectionSection = () => {
       className="relative py-20 lg:py-32 px-4 lg:px-8 bg-gradient-dark overflow-hidden"
     >
       {/* Décorations */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl opacity-50" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-dark-teal/10 rounded-full blur-3xl opacity-50" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -87,7 +87,7 @@ const CollectionSection = () => {
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-6 tracking-wide">
             La Collection Exclusive
           </h2>
-          <div className="w-24 h-1 bg-gradient-gold mx-auto" />
+          <div className="w-24 h-1 bg-gradient-burgundy mx-auto" />
         </motion.div>
 
         {/* Products - Alternating Layout */}
@@ -124,7 +124,7 @@ const CollectionSection = () => {
                       {product.tags.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="px-3 py-1 bg-gold/20 backdrop-blur-sm border border-gold/40 rounded-full text-cream text-xs font-body font-medium"
+                          className="px-3 py-1 bg-dark-teal/30 backdrop-blur-sm border border-dark-teal/50 rounded-full text-cream text-xs font-body font-medium"
                         >
                           {tag}
                         </span>
@@ -134,13 +134,13 @@ const CollectionSection = () => {
 
                   {/* Content */}
                   <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-                    <h3 className="font-heading text-3xl md:text-4xl lg:text-5xl text-gold mb-6 tracking-wide">
+                    <h3 className="font-heading text-3xl md:text-4xl lg:text-5xl text-cream mb-6 tracking-wide">
                       {product.name}
                     </h3>
 
                     {/* Le mot du Chef */}
                     <motion.div
-                      className="mb-6 p-5 bg-gold/10 border-l-4 border-gold rounded-r-lg"
+                      className="mb-6 p-5 bg-dark-teal/20 border-l-4 border-dark-teal rounded-r-lg"
                       initial={{ opacity: 0, x: isEven ? -20 : 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -164,7 +164,7 @@ const CollectionSection = () => {
                       <ul className="space-y-2 text-sm md:text-base text-cream/70 font-body">
                         {product.composition.map((item, itemIndex) => (
                           <li key={itemIndex} className="flex items-start gap-3">
-                            <Check className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
+                            <Check className="w-5 h-5 text-cream/70 mt-0.5 flex-shrink-0" />
                             <span>{item}</span>
                           </li>
                         ))}

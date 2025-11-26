@@ -72,6 +72,7 @@ export default {
         cream: "hsl(var(--cream))",
         "dark-bg": "hsl(var(--dark-bg))",
         pine: "hsl(var(--pine))",
+        "dark-teal": "hsl(var(--dark-teal))",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -4,7 +4,7 @@ const ChefSection = () => {
   return (
     <section className="relative py-20 lg:py-32 px-4 lg:px-8 bg-gradient-dark overflow-hidden">
       {/* Décorations - Cercles flous */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl opacity-50" />
+      <div className="absolute top-20 right-10 w-72 h-72 bg-dark-teal/10 rounded-full blur-3xl opacity-50" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -17,7 +17,7 @@ const ChefSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-gold/20 shadow-elegant">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-dark-teal/30 shadow-elegant">
               <img
                 src="/images/chef.webp"
                 alt="Portrait du Chef Nicolas Bulier"
@@ -70,7 +70,7 @@ const ChefSection = () => {
 
             {/* Citation du Chef */}
             <motion.blockquote
-              className="mt-8 p-6 bg-card/30 border-l-4 border-gold rounded-r-lg glass-card"
+              className="mt-8 p-6 bg-card/30 border-l-4 border-dark-teal rounded-r-lg glass-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -80,7 +80,7 @@ const ChefSection = () => {
                 "Chaque bouchée doit être un moment de grâce. Pour vous. Pour vos proches.
                 Pour ceux qui pensaient ne plus jamais goûter une bûche digne de ce nom."
               </p>
-              <footer className="text-gold text-base font-body font-semibold mt-4">
+              <footer className="text-cream/90 text-base font-body font-semibold mt-4">
                 — Chef Nicolas Bulier
               </footer>
             </motion.blockquote>

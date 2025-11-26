@@ -166,9 +166,9 @@ const FormSection = () => {
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Sparkles className="w-6 h-6 text-gold" />
+            <Sparkles className="w-6 h-6 text-cream/80" />
           </motion.div>
-          <h2 className="font-heading text-4xl md:text-5xl text-gold mb-4 tracking-wide">
+          <h2 className="font-heading text-4xl md:text-5xl text-cream mb-4 tracking-wide">
             Accès à la vente privée
           </h2>
           <p className="text-cream/70 text-base md:text-lg font-light leading-relaxed">
@@ -216,7 +216,7 @@ const FormSection = () => {
                 name="nom"
                 value={formData.nom}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
                 placeholder="Muller"
                 required
               />
@@ -241,7 +241,7 @@ const FormSection = () => {
                 name="prenom"
                 value={formData.prenom}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
                 placeholder="Thomas"
                 required
               />
@@ -266,7 +266,7 @@ const FormSection = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
                 placeholder="thomas.muller@bluewin.ch"
                 required
               />
@@ -291,7 +291,7 @@ const FormSection = () => {
                 name="telephone"
                 value={formData.telephone}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b-2 border-gold/30 focus:border-gold outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
                 placeholder="079 123 45 67"
                 required
               />

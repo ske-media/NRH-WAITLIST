@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative py-12 px-4 lg:px-8 bg-dark-bg border-t border-gold/20">
+    <footer className="relative py-12 px-4 lg:px-8 bg-dark-teal border-t border-dark-teal/30">
       <motion.div
         className="max-w-7xl mx-auto"
         initial={{ opacity: 0, y: 20 }}

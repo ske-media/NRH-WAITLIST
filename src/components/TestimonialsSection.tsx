@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
   return (
     <section className="relative py-20 lg:py-32 px-4 lg:px-8 bg-gradient-dark overflow-hidden">
       {/* Décorations */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl opacity-50" />
+      <div className="absolute top-20 right-10 w-72 h-72 bg-dark-teal/10 rounded-full blur-3xl opacity-50" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-50" />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-6 tracking-wide">
             Ce qu'ils en disent
           </h2>
-          <div className="w-24 h-1 bg-gradient-gold mx-auto" />
+          <div className="w-24 h-1 bg-gradient-burgundy mx-auto" />
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -77,11 +77,11 @@ const TestimonialsSection = () => {
                 </p>
                 
                 <footer className="flex items-center gap-4 mt-auto">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold/20 to-burgundy/20 border border-gold/40 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-dark-teal/30 to-burgundy/30 border border-dark-teal/50 flex items-center justify-center">
                     <span className="text-xl">{testimonial.emoji}</span>
                   </div>
                   <div className="text-left">
-                    <p className="font-heading text-base text-gold font-semibold">
+                    <p className="font-heading text-base text-cream font-semibold">
                       {testimonial.author}
                     </p>
                     <p className="text-cream/70 font-body text-sm">

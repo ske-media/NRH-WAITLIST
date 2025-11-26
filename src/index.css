@@ -47,6 +47,7 @@ All colors MUST be HSL.
     --cream: 35 25% 95%; /* Crème */
     --dark-bg: 0 0% 8%; /* Fond sombre */
     --pine: 150 30% 20%; /* Vert pin */
+    --dark-teal: 180 40% 18%; /* Vert foncé (dark teal) - cohérent avec les flyers */
 
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
@@ -199,6 +200,18 @@ All colors MUST be HSL.
 
   .bg-dark-bg {
     background-color: hsl(var(--dark-bg));
+  }
+
+  .bg-dark-teal {
+    background-color: hsl(var(--dark-teal));
+  }
+
+  .text-dark-teal {
+    color: hsl(var(--dark-teal));
+  }
+
+  .border-dark-teal {
+    border-color: hsl(var(--dark-teal));
   }
 
   .border-gold {

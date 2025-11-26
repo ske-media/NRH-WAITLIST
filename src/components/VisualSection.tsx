@@ -42,7 +42,7 @@ const VisualSection = () => {
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-cream mb-6">
             Le Rêve
           </h2>
-          <div className="w-24 h-1 bg-gradient-gold mx-auto mb-6" />
+          <div className="w-24 h-1 bg-gradient-burgundy mx-auto mb-6" />
           <p className="text-lg md:text-xl text-cream/70 max-w-3xl mx-auto font-body font-light leading-relaxed">
             Des créations uniques, façonnées à la main, alliant la finesse de la
             haute pâtisserie à la chaleur des souvenirs d'enfance.

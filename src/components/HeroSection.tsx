@@ -67,13 +67,13 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm border border-gold/40 rounded-full text-cream text-sm font-body font-medium">
+          <span className="px-4 py-2 bg-dark-teal/30 backdrop-blur-sm border border-dark-teal/50 rounded-full text-cream text-sm font-body font-medium">
             Artisanal
           </span>
-          <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm border border-gold/40 rounded-full text-cream text-sm font-body font-medium">
+          <span className="px-4 py-2 bg-dark-teal/30 backdrop-blur-sm border border-dark-teal/50 rounded-full text-cream text-sm font-body font-medium">
             Édition Limitée
           </span>
-          <span className="px-4 py-2 bg-gold/20 backdrop-blur-sm border border-gold/40 rounded-full text-cream text-sm font-body font-medium">
+          <span className="px-4 py-2 bg-dark-teal/30 backdrop-blur-sm border border-dark-teal/50 rounded-full text-cream text-sm font-body font-medium">
             Haute Pâtisserie
           </span>
         </motion.div>
@@ -118,7 +118,7 @@ const HeroSection = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <ChevronDown className="w-8 h-8 text-gold" />
+          <ChevronDown className="w-8 h-8 text-cream/60" />
         </motion.div>
       </motion.div>
     </section>
