@@ -275,7 +275,7 @@ const Devis = () => {
                   name="entreprise"
                   value={formData.entreprise}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                   placeholder="Nom de votre entreprise"
                   required
                 />
@@ -301,7 +301,7 @@ const Devis = () => {
                     name="nom"
                     value={formData.nom}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                    className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                     placeholder="Dupont"
                     required
                   />
@@ -325,7 +325,7 @@ const Devis = () => {
                     name="prenom"
                     value={formData.prenom}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                    className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                     placeholder="Jean"
                     required
                   />
@@ -351,7 +351,7 @@ const Devis = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                   placeholder="jean.dupont@entreprise.ch"
                   required
                 />
@@ -376,7 +376,7 @@ const Devis = () => {
                   name="telephone"
                   value={formData.telephone}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                   placeholder="+41 79 123 45 67 ou 079 123 45 67"
                   required
                 />
@@ -399,7 +399,7 @@ const Devis = () => {
                   name="nombreBuches"
                   value={formData.nombreBuches}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300"
+                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 cursor-pointer"
                   required
                 >
                   <option value="">Sélectionnez...</option>
@@ -428,7 +428,7 @@ const Devis = () => {
                   name="dateLivraison"
                   value={formData.dateLivraison}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300"
+                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 cursor-pointer"
                 />
               </motion.div>
 
@@ -451,7 +451,7 @@ const Devis = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground resize-none"
+                  className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground resize-none cursor-text"
                   placeholder="Informations complémentaires, contraintes particulières..."
                 />
               </motion.div>

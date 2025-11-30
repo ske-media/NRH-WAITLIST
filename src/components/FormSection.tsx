@@ -229,7 +229,7 @@ const FormSection = () => {
                 name="nom"
                 value={formData.nom}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                 placeholder="Muller"
                 required
               />
@@ -254,7 +254,7 @@ const FormSection = () => {
                 name="prenom"
                 value={formData.prenom}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                 placeholder="Thomas"
                 required
               />
@@ -279,7 +279,7 @@ const FormSection = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                 placeholder="thomas.muller@bluewin.ch"
                 required
               />
@@ -304,7 +304,7 @@ const FormSection = () => {
                 name="telephone"
                 value={formData.telephone}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
+                className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
                 placeholder="+41 79 123 45 67 ou 079 123 45 67"
                 required
               />
