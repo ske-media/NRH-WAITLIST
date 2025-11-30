@@ -18,13 +18,26 @@ const FormSection = () => {
     return emailRegex.test(email);
   };
 
-  // Validation téléphone suisse (format 07X XXX XX XX - 10 chiffres)
+  // Validation téléphone flexible (internationale, mobile, fixe)
   const validatePhone = (phone: string): boolean => {
     if (!phone) return false; // Obligatoire
-    // Nettoyer les espaces et tirets pour la validation
-    const cleaned = phone.replace(/[\s\-\(\)]/g, "");
-    // Vérifier qu'il y a exactement 10 chiffres et commence par 07
-    return /^07\d{8}$/.test(cleaned);
+    // Nettoyer les espaces, tirets, parenthèses et points
+    const cleaned = phone.replace(/[\s\-\(\)\.]/g, "");
+    
+    // Vérifier qu'il contient au moins des chiffres
+    if (!/\d/.test(cleaned)) return false;
+    
+    // Accepter les formats :
+    // - International : + suivi de 1-3 chiffres (indicatif) puis 6-12 chiffres
+    // - National avec 0 : 0 suivi de 6-12 chiffres (mobile 07X, fixe 01X, 02X, 04X, etc.)
+    // - Direct : 6-15 chiffres (pour formats courts ou internationaux sans +)
+    const internationalPattern = /^\+\d{1,3}\d{6,12}$/; // +33, +41, etc.
+    const nationalPattern = /^0\d{6,12}$/; // 07X, 01X, 02X, 04X, etc.
+    const directPattern = /^\d{6,15}$/; // Formats directs sans préfixe
+    
+    return internationalPattern.test(cleaned) || 
+           nationalPattern.test(cleaned) || 
+           directPattern.test(cleaned);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -66,7 +79,7 @@ const FormSection = () => {
     }
 
     if (!validatePhone(formData.telephone)) {
-      toast.error("Veuillez entrer un numéro de téléphone suisse valide (format: 07X XXX XX XX)");
+      toast.error("Veuillez entrer un numéro de téléphone valide (international, mobile ou fixe)");
       setIsSubmitting(false);
       return;
     }
@@ -292,7 +305,7 @@ const FormSection = () => {
                 value={formData.telephone}
                 onChange={handleChange}
                 className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground"
-                placeholder="079 123 45 67"
+                placeholder="+41 79 123 45 67 ou 079 123 45 67"
                 required
               />
             </motion.div>
