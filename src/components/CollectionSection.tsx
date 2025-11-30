@@ -19,7 +19,7 @@ const products: Product[] = [
     pricePerPart: "Soit CHF 6.60 par part",
     parts: "6-8 parts",
     tags: ["Sans Lactose", "IG Bas", "Sans sucre raffinés"],
-    chefNote: "Pistache pure – Framboise – Subtil fleur d'oranger",
+    chefNote: "Pistache pure – Framboise – Subtil pointes de citron vert",
     composition: [
       "Biscuit pistache & citron vert",
       "Croustillant reconstitué pistache",
