@@ -8,17 +8,17 @@ const B2BSection = () => {
   const painPoints = [
     {
       icon: Users,
-      problem: "Des collaborateurs exclus à cause de contraintes alimentaires",
+      problem: "Pour des collaborateurs exclus à cause de contraintes alimentaires",
       solution: "Des bûches sans lactose, sans gluten, IG bas. Personne n'est laissé de côté."
     },
     {
       icon: Gift,
-      problem: "Des cadeaux clients qui se ressemblent tous",
+      problem: "Des cadeaux clients qui se démarquent",
       solution: "Une création unique qui marque les esprits et renforce vos relations."
     },
     {
       icon: Clock,
-      problem: "La logistique qui complique tout",
+      problem: "Logistique simplifiée",
       solution: "Livraison organisée, conditionnement adapté, flexibilité des dates. On s'occupe de tout."
     }
   ];

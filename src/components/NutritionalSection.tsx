@@ -4,16 +4,12 @@ import { Check } from "lucide-react";
 const NutritionalSection = () => {
   const benefits = [
     {
-      title: "Chocolat 70% grand cru",
-      description: "Sucre naturels et fibres sucrantes : Inuline, oligofructose, sucre de coco de canne complet ou sirop d'agave, sucrant à index glycemique bas pour la douceur du sucre sans culpabilisé."
+      title: "Sucres naturels et fibres sucrantes",
+      description: "Sucres naturels et fibres sucrantes : sucre de coco, sucre de canne complet ou sirop d'agave pour leurs apports en vitamines et minéraux. Des fibres sucrantes à faible indice glycémique pour une douceur sans culpabilité grâce à l'inuline* et au fructose."
     },
     {
-      title: "Farines alternatives",
-      description: "Amande, pistache, noisette, farine de riz complet : des textures authentique sans gluten – Farine T80, T150, plus nutritives et favorable pour la glycémie."
-    },
-    {
-      title: "Matières grasses saines et végétale",
-      description: "Huiles végétale, huile de coco, beurre de cacao plus légé gustitivement et bon pour la santé."
+      title: "Matières grasses saines et végétales",
+      description: "Huiles végétales, huile de coco, beurre de cacao, plus légers gustativement et bons pour la santé, contribuant ainsi à une meilleure gestion du cholestérol grâce à leur origine végétale."
     }
   ];
 
@@ -72,6 +68,19 @@ const NutritionalSection = () => {
           ))}
         </motion.div>
 
+        {/* Note explicative sur l'inuline */}
+        <motion.div
+          className="text-center mt-8 mb-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <p className="text-sm text-cream/70 font-body italic max-w-2xl mx-auto">
+            <span className="text-cream/90">*</span> Inuline = fibre soluble issue de la racine de chicorée
+          </p>
+        </motion.div>
+
         {/* Disclaimer */}
         <motion.div
           className="text-center mt-12 pt-8 border-t border-gold/20"
@@ -81,7 +90,7 @@ const NutritionalSection = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <p className="text-xs text-cream/60 font-body max-w-3xl mx-auto leading-relaxed">
-            * Les informations nutritionnelles sont indicatives et peuvent varier selon les préparations. 
+            Les informations nutritionnelles sont indicatives et peuvent varier selon les préparations. 
             En cas de régime alimentaire strict ou d'allergies, veuillez consulter votre médecin. 
             Ces créations sont conçues pour une consommation occasionnelle dans le cadre d'une alimentation équilibrée.
           </p>
