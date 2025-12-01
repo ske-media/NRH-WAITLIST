@@ -48,7 +48,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7 }}
         >
-          La promesse d'un dessert d'exception où chaque convive, sans exception, retrouve le goût authentique des fêtes.
+          La promesse d'un dessert d'exception où chaque convive, retrouve le goût authentique des fêtes.
         </motion.h2>
 
         <motion.p
