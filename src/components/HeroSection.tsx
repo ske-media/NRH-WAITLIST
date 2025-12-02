@@ -57,7 +57,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
         >
-          Des créations signées Nicolas Bulier, pensées pour le plaisir de tous. Sans lactose · Sans gluten · Indice glycémique bas
+          Des créations signées Nicolas Bulier, pensées pour le plaisir de tous.
+          <br />
+          Sans lactose · Sans gluten · Indice glycémique bas
         </motion.p>
 
         {/* Badges Features */}
