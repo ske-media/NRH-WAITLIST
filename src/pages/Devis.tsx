@@ -386,7 +386,7 @@ const Devis = () => {
                   value={formData.entreprise}
                   onChange={handleChange}
                   className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
-                  placeholder="Nom de votre entreprise"
+                  placeholder="Entreprise SA"
                   required
                 />
               </motion.div>
@@ -412,7 +412,7 @@ const Devis = () => {
                     value={formData.nom}
                     onChange={handleChange}
                     className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
-                    placeholder="Dupont"
+                    placeholder="Müller"
                     required
                   />
                 </motion.div>
@@ -436,7 +436,7 @@ const Devis = () => {
                     value={formData.prenom}
                     onChange={handleChange}
                     className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
-                    placeholder="Jean"
+                    placeholder="Thomas"
                     required
                   />
                 </motion.div>
@@ -462,7 +462,7 @@ const Devis = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full bg-transparent border-b-2 border-dark-teal/40 focus:border-dark-teal outline-none py-3 px-2 text-foreground text-lg transition-colors duration-300 placeholder:text-muted-foreground cursor-text"
-                  placeholder="jean.dupont@entreprise.ch"
+                  placeholder="thomas.muller@entreprise.ch"
                   required
                 />
               </motion.div>
