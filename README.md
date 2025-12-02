@@ -42,6 +42,34 @@ npm run dev
 - `npm run lint` - Lancer le linter
 - `npm run preview` - Prévisualiser le build de production
 
+## Configuration des variables d'environnement
+
+### Développement local
+
+Créez un fichier `.env` à la racine du projet avec les variables suivantes :
+
+```env
+VITE_EMAILJS_SERVICE_ID=service_infomaniak
+VITE_EMAILJS_TEMPLATE_ID_WAITLIST=template_vente
+VITE_EMAILJS_TEMPLATE_ID_DEVIS=template_devis
+VITE_EMAILJS_PUBLIC_KEY=Tcw1skVvOgn5MQfgp
+```
+
+### Production sur Netlify
+
+**⚠️ Important** : Le fichier `.env` n'est pas déployé (il est dans `.gitignore`). Vous devez configurer les variables d'environnement directement dans Netlify :
+
+1. **Accédez à votre site sur Netlify** : https://app.netlify.com
+2. **Allez dans Site settings** → **Environment variables**
+3. **Ajoutez les 4 variables suivantes** :
+   - `VITE_EMAILJS_SERVICE_ID` = `service_infomaniak`
+   - `VITE_EMAILJS_TEMPLATE_ID_WAITLIST` = `template_vente`
+   - `VITE_EMAILJS_TEMPLATE_ID_DEVIS` = `template_devis`
+   - `VITE_EMAILJS_PUBLIC_KEY` = `Tcw1skVvOgn5MQfgp`
+4. **Redéployez votre site** pour que les variables soient prises en compte
+
+**Note** : Les variables d'environnement avec le préfixe `VITE_` sont injectées dans le bundle JavaScript au moment du build. Elles sont donc visibles côté client (ce qui est normal pour EmailJS qui fonctionne côté client).
+
 ## Déploiement
 
 Le projet peut être déployé sur n'importe quelle plateforme supportant les applications Vite/React, comme :

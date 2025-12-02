@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SubtleParticles from "@/components/SnowParticles";
+import emailjs from "@emailjs/browser";
 
 const Devis = () => {
   const navigate = useNavigate();
@@ -20,6 +21,16 @@ const Devis = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Log des variables d'environnement au chargement (pour débogage)
+  if (import.meta.env.DEV) {
+    console.log("🔍 Variables EmailJS disponibles:", {
+      VITE_EMAILJS_SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      VITE_EMAILJS_PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? "✅ Définie" : "❌ Manquante",
+      VITE_EMAILJS_TEMPLATE_CLIENT_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_CLIENT_ID,
+      VITE_EMAILJS_TEMPLATE_ADMIN_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ADMIN_ID,
+    });
+  }
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -104,6 +115,34 @@ const Devis = () => {
     // En développement local
     if (import.meta.env.DEV) {
       await new Promise((resolve) => setTimeout(resolve, 500));
+      
+      // Simuler l'envoi EmailJS en développement (double envoi)
+      const clientParams = {
+        prenom: formData.prenom,
+        email: formData.email,
+        sujet_email: "Votre demande de devis - Nicolas Bulier",
+        titre_email: "Nous avons bien reçu votre demande",
+        message_principal: "Merci de penser à nos créations pour l'entreprise " + formData.entreprise + "...",
+      };
+      
+      const adminParams = {
+        type_formulaire: "DEMANDE DEVIS B2B",
+        nom: formData.nom,
+        prenom: formData.prenom,
+        email: formData.email,
+        telephone: formData.telephone,
+        entreprise: formData.entreprise,
+        nombre_buches: formData.nombreBuches,
+        date_livraison: formData.dateLivraison || "",
+        message: formData.message || "",
+      };
+      
+      console.log("[DEV] EmailJS simulé - Email CLIENT:", clientParams);
+      console.log("[DEV] EmailJS simulé - Email ADMIN:", adminParams);
+      console.log("[DEV] Service ID:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
+      console.log("[DEV] Template CLIENT ID:", import.meta.env.VITE_EMAILJS_TEMPLATE_CLIENT_ID);
+      console.log("[DEV] Template ADMIN ID:", import.meta.env.VITE_EMAILJS_TEMPLATE_ADMIN_ID);
+      
       toast.success("🎉 Demande de devis envoyée !", {
         description: "Nous vous répondrons sous 24h.",
         duration: 8000,
@@ -156,6 +195,77 @@ const Devis = () => {
       });
 
       if (response.ok) {
+        // Double envoi EmailJS après succès Netlify (en parallèle)
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        const clientTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_CLIENT_ID;
+        const adminTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ADMIN_ID;
+        
+        // Vérifier que les variables d'environnement sont définies
+        if (!serviceId || !publicKey || !clientTemplateId || !adminTemplateId) {
+          console.error("Variables EmailJS manquantes:", {
+            serviceId: !!serviceId,
+            publicKey: !!publicKey,
+            clientTemplateId: !!clientTemplateId,
+            adminTemplateId: !!adminTemplateId,
+          });
+        } else {
+          // Paramètres pour l'email CLIENT (accusé de réception design)
+          const clientParams = {
+            prenom: formData.prenom,
+            email: formData.email,
+            sujet_email: "Votre demande de devis - Nicolas Bulier",
+            titre_email: "Nous avons bien reçu votre demande",
+            message_principal: "Merci de penser à nos créations pour l'entreprise " + formData.entreprise + "...",
+          };
+          
+          // Paramètres pour l'email ADMIN (notification interne)
+          const adminParams = {
+            type_formulaire: "DEMANDE DEVIS B2B",
+            nom: formData.nom,
+            prenom: formData.prenom,
+            email: formData.email,
+            telephone: formData.telephone,
+            entreprise: formData.entreprise,
+            nombre_buches: formData.nombreBuches,
+            date_livraison: formData.dateLivraison || "",
+            message: formData.message || "",
+          };
+
+          console.log("Envoi EmailJS - CLIENT:", { serviceId, templateId: clientTemplateId, params: clientParams });
+          console.log("Envoi EmailJS - ADMIN:", { serviceId, templateId: adminTemplateId, params: adminParams });
+
+          // Envoi en parallèle des 2 emails
+          Promise.all([
+            emailjs.send(
+              serviceId,
+              clientTemplateId,
+              clientParams,
+              publicKey
+            )
+            .then((result) => {
+              console.log("✅ EmailJS CLIENT envoyé avec succès:", result);
+            })
+            .catch((error) => {
+              console.error("❌ Erreur lors de l'envoi EmailJS (CLIENT):", error);
+            }),
+            emailjs.send(
+              serviceId,
+              adminTemplateId,
+              adminParams,
+              publicKey
+            )
+            .then((result) => {
+              console.log("✅ EmailJS ADMIN envoyé avec succès:", result);
+            })
+            .catch((error) => {
+              console.error("❌ Erreur lors de l'envoi EmailJS (ADMIN):", error);
+            }),
+          ]).catch(() => {
+            // Erreur déjà gérée individuellement, on ne fait rien ici
+          });
+        }
+
         toast.success("🎉 Demande de devis envoyée !", {
           description: "Nous vous répondrons sous 24h.",
           duration: 8000,
