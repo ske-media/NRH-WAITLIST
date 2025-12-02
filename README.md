@@ -49,10 +49,10 @@ npm run dev
 Créez un fichier `.env` à la racine du projet avec les variables suivantes :
 
 ```env
-VITE_EMAILJS_SERVICE_ID=service_infomaniak
-VITE_EMAILJS_TEMPLATE_ID_WAITLIST=template_vente
-VITE_EMAILJS_TEMPLATE_ID_DEVIS=template_devis
-VITE_EMAILJS_PUBLIC_KEY=Tcw1skVvOgn5MQfgp
+VITE_EMAILJS_SERVICE_ID=votre_service_id
+VITE_EMAILJS_PUBLIC_KEY=votre_public_key
+VITE_EMAILJS_TEMPLATE_CLIENT_ID=votre_template_client_id
+VITE_EMAILJS_TEMPLATE_ADMIN_ID=votre_template_admin_id
 ```
 
 ### Production sur Netlify
@@ -62,13 +62,25 @@ VITE_EMAILJS_PUBLIC_KEY=Tcw1skVvOgn5MQfgp
 1. **Accédez à votre site sur Netlify** : https://app.netlify.com
 2. **Allez dans Site settings** → **Environment variables**
 3. **Ajoutez les 4 variables suivantes** :
-   - `VITE_EMAILJS_SERVICE_ID` = `service_infomaniak`
-   - `VITE_EMAILJS_TEMPLATE_ID_WAITLIST` = `template_vente`
-   - `VITE_EMAILJS_TEMPLATE_ID_DEVIS` = `template_devis`
-   - `VITE_EMAILJS_PUBLIC_KEY` = `Tcw1skVvOgn5MQfgp`
+   - `VITE_EMAILJS_SERVICE_ID` = votre Service ID depuis le dashboard EmailJS
+   - `VITE_EMAILJS_PUBLIC_KEY` = votre Public Key depuis le dashboard EmailJS
+   - `VITE_EMAILJS_TEMPLATE_CLIENT_ID` = votre Template ID pour l'email client
+   - `VITE_EMAILJS_TEMPLATE_ADMIN_ID` = votre Template ID pour l'email admin
 4. **Redéployez votre site** pour que les variables soient prises en compte
 
 **Note** : Les variables d'environnement avec le préfixe `VITE_` sont injectées dans le bundle JavaScript au moment du build. Elles sont donc visibles côté client (ce qui est normal pour EmailJS qui fonctionne côté client).
+
+### Résolution du scan des secrets Netlify
+
+Si Netlify détecte des secrets dans le build et bloque le déploiement :
+
+1. **Accédez à Site settings** → **Build & deploy** → **Environment**
+2. **Ajoutez une variable d'environnement** :
+   - Clé : `SECRETS_SCAN_OMIT_PATHS`
+   - Valeur : `dist/**`
+3. **Redéployez** votre site
+
+Cela indique à Netlify d'ignorer le dossier `dist/` lors du scan des secrets, car les variables `VITE_*` y sont normalement injectées par Vite.
 
 ## Déploiement
 
