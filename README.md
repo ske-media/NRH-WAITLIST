@@ -49,9 +49,16 @@ npm run dev
 Créez un fichier `.env` à la racine du projet avec les variables suivantes (remplacez les valeurs par vos identifiants réels depuis le dashboard EmailJS) :
 
 ```env
+# Service ID EmailJS
 VITE_EMAILJS_SERVICE_ID=<votre_service_id>
+
+# Clé publique EmailJS
 VITE_EMAILJS_PUBLIC_KEY=<votre_public_key>
+
+# ID du template pour l'email client
 VITE_EMAILJS_TEMPLATE_CLIENT_ID=<votre_template_client_id>
+
+# ID du template pour l'email admin
 VITE_EMAILJS_TEMPLATE_ADMIN_ID=<votre_template_admin_id>
 ```
 
