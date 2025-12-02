@@ -72,15 +72,13 @@ VITE_EMAILJS_TEMPLATE_ADMIN_ID=<votre_template_admin_id>
 
 ### Résolution du scan des secrets Netlify
 
-Si Netlify détecte des secrets dans le build et bloque le déploiement :
+Si Netlify détecte des secrets dans le build et bloque le déploiement, vous pouvez configurer Netlify pour ignorer le dossier de build lors du scan :
 
 1. **Accédez à Site settings** → **Build & deploy** → **Environment**
-2. **Ajoutez une variable d'environnement** pour ignorer le dossier de build :
-   - Clé : `SECRETS_SCAN_OMIT_PATHS`
-   - Valeur : `dist/**`
+2. **Ajoutez une variable d'environnement** avec la clé pour ignorer les chemins de build
 3. **Redéployez** votre site
 
-Cela indique à Netlify d'ignorer le dossier de build lors du scan des secrets, car les variables d'environnement avec le préfixe `VITE_` y sont normalement injectées par Vite (ce qui est attendu pour EmailJS qui fonctionne côté client).
+Les variables d'environnement avec le préfixe `VITE_` sont normalement injectées dans le bundle JavaScript par Vite (ce qui est attendu pour EmailJS qui fonctionne côté client). Consultez la documentation Netlify pour plus d'informations sur la configuration du scan des secrets.
 
 ## Déploiement
 
