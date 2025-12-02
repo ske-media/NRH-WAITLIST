@@ -10,7 +10,7 @@ const NutritionalSection = () => {
     {
       title: "Matières grasses saines et végétales",
       description: "Huiles végétales, huile de coco, beurre de cacao, plus légers gustativement et bons pour la santé, contribuant ainsi à une meilleure gestion du cholestérol grâce à leur origine végétale."
-    }
+    },
     {
       title: "Farines alternatives et fruits secs",
       description: "Amande, pistache, noisette, farine de riz complet : des textures authentiques, sans gluten – Farine T80, T150, plus nutritives et favorables pour une glycémie stable. "
