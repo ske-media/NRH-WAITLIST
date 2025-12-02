@@ -46,13 +46,13 @@ npm run dev
 
 ### Développement local
 
-Créez un fichier `.env` à la racine du projet avec les variables suivantes :
+Créez un fichier `.env` à la racine du projet avec les variables suivantes (remplacez les valeurs par vos identifiants réels depuis le dashboard EmailJS) :
 
 ```env
-VITE_EMAILJS_SERVICE_ID=votre_service_id
-VITE_EMAILJS_PUBLIC_KEY=votre_public_key
-VITE_EMAILJS_TEMPLATE_CLIENT_ID=votre_template_client_id
-VITE_EMAILJS_TEMPLATE_ADMIN_ID=votre_template_admin_id
+VITE_EMAILJS_SERVICE_ID=<votre_service_id>
+VITE_EMAILJS_PUBLIC_KEY=<votre_public_key>
+VITE_EMAILJS_TEMPLATE_CLIENT_ID=<votre_template_client_id>
+VITE_EMAILJS_TEMPLATE_ADMIN_ID=<votre_template_admin_id>
 ```
 
 ### Production sur Netlify
@@ -61,11 +61,11 @@ VITE_EMAILJS_TEMPLATE_ADMIN_ID=votre_template_admin_id
 
 1. **Accédez à votre site sur Netlify** : https://app.netlify.com
 2. **Allez dans Site settings** → **Environment variables**
-3. **Ajoutez les 4 variables suivantes** :
-   - `VITE_EMAILJS_SERVICE_ID` = votre Service ID depuis le dashboard EmailJS
-   - `VITE_EMAILJS_PUBLIC_KEY` = votre Public Key depuis le dashboard EmailJS
-   - `VITE_EMAILJS_TEMPLATE_CLIENT_ID` = votre Template ID pour l'email client
-   - `VITE_EMAILJS_TEMPLATE_ADMIN_ID` = votre Template ID pour l'email admin
+3. **Ajoutez les 4 variables suivantes** (remplacez les valeurs par vos identifiants réels) :
+   - Service ID : votre Service ID depuis le dashboard EmailJS
+   - Public Key : votre Public Key depuis le dashboard EmailJS
+   - Template Client ID : votre Template ID pour l'email client
+   - Template Admin ID : votre Template ID pour l'email admin
 4. **Redéployez votre site** pour que les variables soient prises en compte
 
 **Note** : Les variables d'environnement avec le préfixe `VITE_` sont injectées dans le bundle JavaScript au moment du build. Elles sont donc visibles côté client (ce qui est normal pour EmailJS qui fonctionne côté client).
@@ -75,12 +75,12 @@ VITE_EMAILJS_TEMPLATE_ADMIN_ID=votre_template_admin_id
 Si Netlify détecte des secrets dans le build et bloque le déploiement :
 
 1. **Accédez à Site settings** → **Build & deploy** → **Environment**
-2. **Ajoutez une variable d'environnement** :
+2. **Ajoutez une variable d'environnement** pour ignorer le dossier de build :
    - Clé : `SECRETS_SCAN_OMIT_PATHS`
    - Valeur : `dist/**`
 3. **Redéployez** votre site
 
-Cela indique à Netlify d'ignorer le dossier `dist/` lors du scan des secrets, car les variables `VITE_*` y sont normalement injectées par Vite.
+Cela indique à Netlify d'ignorer le dossier de build lors du scan des secrets, car les variables d'environnement avec le préfixe `VITE_` y sont normalement injectées par Vite (ce qui est attendu pour EmailJS qui fonctionne côté client).
 
 ## Déploiement
 
